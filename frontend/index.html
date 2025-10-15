@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Task Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-rocket"></i> Smart Task Planner</h1>
+            <p class="subtitle">Break down your goals into actionable tasks with AI</p>
+        </header>
+
+        <!-- Goal Form -->
+        <div class="card">
+            <h2><i class="fas fa-bullseye"></i> Enter Your Goal</h2>
+            
+            <div id="errorAlert" class="alert error" style="display: none;"></div>
+            
+            <form id="goalForm">
+                <div class="form-group">
+                    <label for="goalInput">What do you want to achieve?</label>
+                    <textarea 
+                        id="goalInput" 
+                        placeholder="e.g., Launch a product in 2 weeks, Learn Spanish in 3 months, Plan a wedding in 6 months"
+                        rows="3"
+                    ></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="timelineInput">Timeline (optional)</label>
+                    <input 
+                        type="text" 
+                        id="timelineInput" 
+                        placeholder="e.g., 2 weeks, 1 month, 3 months"
+                    >
+                </div>
+                
+                <button type="submit" id="generateBtn">
+                    <i class="fas fa-magic"></i> Generate Task Plan
+                </button>
+            </form>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Generating your smart task plan...</p>
+        </div>
+
+        <!-- Task Plan Result -->
+        <div id="result" class="result" style="display: none;">
+            <div class="card">
+                <h2><i class="fas fa-tasks"></i> Your Task Plan</h2>
+                
+                <!-- Goal Summary -->
+                <div class="goal-summary">
+                    <h3 id="goalTitle"></h3>
+                    <div class="duration-badge" id="totalDuration"></div>
+                </div>
+
+                <!-- Tasks Grid -->
+                <div class="tasks-grid">
+                    <!-- Task List Column -->
+                    <div class="column">
+                        <h3><i class="fas fa-list-check"></i> Task List</h3>
+                        <div id="taskList" class="task-list"></div>
+                    </div>
+
+                    <!-- Timeline Column -->
+                    <div class="column">
+                        <h3><i class="fas fa-timeline"></i> Timeline</h3>
+                        <div id="timeline" class="timeline"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
